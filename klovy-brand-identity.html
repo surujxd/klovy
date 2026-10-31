@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>KLOVY — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C4849A;
+    --rose-pale: #F0D8E4;
+    --rose-light: #EDCDD9;
+    --sage: #829A74;
+    --sage-pale: #C4D8B8;
+    --honey: #C9A24A;
+    --cream: #FDF6F0;
+    --taupe: #ECE7E0;
+    --paper: #FAF5F1;
+    --dark: #1E1B2E;
+    --plum: #2A2033;
+    --muted: #9E8FA4;
+    --border: #E0D4CA;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --taupe: #1A1720;
+      --paper: #221E2C;
+      --border: #332D40;
+      --plum: #EDE6F0;
+      --muted: #8A7E90;
+    }
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--taupe);
+    color: var(--plum);
+    min-height: 100vh;
+    padding: env(safe-area-inset-top, 0px) 0 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ─── HEADER ─── */
+  .hd {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    margin-bottom: 36px;
+    border-bottom: 1.5px solid var(--honey);
+  }
+  .hd-left { display: flex; flex-direction: column; gap: 3px; }
+  .hd-eye {
+    font-size: 9px; font-weight: 400;
+    letter-spacing: 0.24em; color: var(--muted);
+    text-transform: uppercase;
+  }
+  .hd-name {
+    font-family: var(--serif); font-size: 28px; font-weight: 600;
+    letter-spacing: 0.16em; color: var(--plum);
+  }
+  .hd-right {
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 0.06em; text-align: right; line-height: 1.65;
+  }
+
+  /* ─── SECTION ─── */
+  .sec { margin-bottom: 26px; }
+  .sec-lbl {
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--honey); margin-bottom: 12px;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-pad { padding: 56px 48px; }
+  .card-sm { padding: 36px 32px; }
+  .card-dark { background: var(--dark); border-color: #2E2842; }
+  .card-blush { background: var(--rose-pale); border-color: #D8B4C4; }
+
+  /* ─── GRIDS ─── */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .g5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+  /* ─── LOCKUP ─── */
+  .lh { display: flex; align-items: center; gap: 22px; }
+  .lv { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+  .wm {
+    font-family: var(--serif); font-weight: 600;
+    letter-spacing: 0.2em; line-height: 1;
+  }
+  .wm-xl { font-size: 54px; color: var(--plum); }
+  .wm-lg { font-size: 40px; color: var(--plum); }
+  .wm-md { font-size: 28px; color: var(--plum); }
+  .wm-w  { color: var(--cream); }
+
+  .tl {
+    font-family: var(--sans); font-weight: 300;
+    letter-spacing: 0.22em; text-transform: lowercase;
+    color: var(--muted);
+  }
+  .tl-lg { font-size: 12px; }
+  .tl-md { font-size: 10px; }
+  .tl-w  { color: rgba(253,246,240,.42); }
+
+  /* ─── SWATCHES ─── */
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .sw-fill { height: 74px; }
+  .sw-info { background: var(--paper); padding: 10px 12px; }
+  .sw-name { font-size: 11px; font-weight: 500; color: var(--plum); margin-bottom: 2px; }
+  .sw-hex  { font-size: 9px; color: var(--muted); letter-spacing: 0.07em; }
+
+  /* ─── TYPE CARD ─── */
+  .tc { background: var(--paper); border: 1px solid var(--border); border-radius: 14px; padding: 36px; }
+  .tr { padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .tr:first-child { padding-top: 0; }
+  .tr:last-child  { border-bottom: none; padding-bottom: 0; }
+  .tm { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--honey); margin-bottom: 9px; }
+
+  /* ─── MARK CARDS ─── */
+  .mc {
+    background: var(--paper); border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .ml { font-size: 9px; color: var(--muted); letter-spacing: 0.11em; }
+
+  /* ─── CONTEXT CARDS ─── */
+  .cc {
+    background: var(--paper); border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .cl { font-size: 9px; color: var(--muted); letter-spacing: 0.11em; margin-top: 4px; }
+
+  /* ─── FOOTER ─── */
+  .ft {
+    margin-top: 40px; padding-top: 18px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ft-logo { display: flex; align-items: center; gap: 10px; }
+  .ft-wm {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 15px; letter-spacing: 0.15em; color: var(--plum);
+  }
+  .ft-copy { font-size: 9px; color: var(--muted); letter-spacing: 0.09em; }
+
+  @media (max-width: 620px) {
+    .g2, .g3, .g5 { grid-template-columns: 1fr; }
+    .lh { flex-direction: column; text-align: center; }
+    .wm-xl { font-size: 42px; }
+    .wm-lg { font-size: 32px; }
+    .sheet { padding: 28px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ══ HEADER ══ -->
+  <header class="hd">
+    <div class="hd-left">
+      <span class="hd-eye">Brand Identity System</span>
+      <span class="hd-name">KLOVY</span>
+    </div>
+    <div class="hd-right">
+      Handmade Crochet &amp; Gifts<br>
+      Identity v1.0 · 2025
+    </div>
+  </header>
+
+  <!-- ══ 01 PRIMARY LOGO ══ -->
+  <div class="sec">
+    <div class="sec-lbl">01 — Primary Logo</div>
+    <div class="card card-pad">
+      <div class="lh">
+        <svg width="86" height="86" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KLOVY crochet flower mark">
+          <g transform="translate(30,30)">
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+            <!-- inner loop / stitch texture -->
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(0)"   opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(60)"  opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(120)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(180)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(240)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(300)" opacity="0.55"/>
+            <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+            <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+          </g>
+        </svg>
+        <div>
+          <div class="wm wm-xl">KLOVY</div>
+          <div class="tl tl-lg" style="margin-top:7px;">handmade · gifted · loved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 02 VARIATIONS ══ -->
+  <div class="sec">
+    <div class="sec-lbl">02 — Logo on Dark &amp; Logo on Blush</div>
+    <div class="g2">
+
+      <!-- dark bg -->
+      <div class="card card-dark card-sm">
+        <div class="lh">
+          <svg width="62" height="62" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30,30)">
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(0)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(60)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(120)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(180)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(240)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#E8C4D2" transform="rotate(300)"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(0)"   opacity="0.45"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(60)"  opacity="0.45"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(120)" opacity="0.45"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(180)" opacity="0.45"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(240)" opacity="0.45"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#F4D4E0" transform="rotate(300)" opacity="0.45"/>
+              <circle cx="0" cy="0" r="8.5" fill="#9ABE8C"/>
+              <circle cx="0" cy="0" r="4"   fill="#1E1B2E"/>
+            </g>
+          </svg>
+          <div>
+            <div class="wm wm-lg wm-w">KLOVY</div>
+            <div class="tl tl-md tl-w" style="margin-top:5px;">handmade · gifted · loved</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- blush bg -->
+      <div class="card card-blush card-sm">
+        <div class="lh">
+          <svg width="62" height="62" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30,30)">
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(0)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(60)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(120)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(180)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(240)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="white" transform="rotate(300)"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(0)"   opacity="0.7"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(60)"  opacity="0.7"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(120)" opacity="0.7"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(180)" opacity="0.7"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(240)" opacity="0.7"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#ECC0D0" transform="rotate(300)" opacity="0.7"/>
+              <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+              <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+            </g>
+          </svg>
+          <div>
+            <div class="wm wm-lg">KLOVY</div>
+            <div class="tl tl-md" style="margin-top:5px;">handmade · gifted · loved</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 03 MARK SIZES ══ -->
+  <div class="sec">
+    <div class="sec-lbl">03 — The Mark at Scale</div>
+    <div class="g3">
+
+      <!-- large -->
+      <div class="mc">
+        <svg width="100" height="100" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,30)">
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(0)"   opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(60)"  opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(120)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(180)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(240)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(300)" opacity="0.55"/>
+            <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+            <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+          </g>
+        </svg>
+        <div class="ml">100 px · App icon / favicon</div>
+      </div>
+
+      <!-- medium -->
+      <div class="mc">
+        <svg width="56" height="56" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,30)">
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(0)"   opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(60)"  opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(120)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(180)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(240)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(300)" opacity="0.55"/>
+            <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+            <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+          </g>
+        </svg>
+        <div class="ml">56 px · Header / nav bar</div>
+      </div>
+
+      <!-- small -->
+      <div class="mc">
+        <svg width="32" height="32" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,30)">
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+            <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+            <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+          </g>
+        </svg>
+        <div class="ml">32 px · Inline / tab icon</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 04 STACKED + STAMP ══ -->
+  <div class="sec">
+    <div class="sec-lbl">04 — Stacked Lock-up &amp; Stamp Badge</div>
+    <div class="g2">
+
+      <!-- stacked -->
+      <div class="card card-sm">
+        <div class="lv">
+          <svg width="68" height="68" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30,30)">
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(0)"   opacity="0.55"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(60)"  opacity="0.55"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(120)" opacity="0.55"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(180)" opacity="0.55"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(240)" opacity="0.55"/>
+              <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(300)" opacity="0.55"/>
+              <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+              <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+            </g>
+          </svg>
+          <div class="wm wm-lg" style="text-align:center;">KLOVY</div>
+          <div class="tl tl-md" style="text-align:center;">handmade · gifted · loved</div>
+        </div>
+      </div>
+
+      <!-- stamp badge -->
+      <div class="card card-sm">
+        <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="85" cy="85" r="79" fill="none" stroke="#C4849A" stroke-width="2"/>
+          <circle cx="85" cy="85" r="72" fill="none" stroke="#C4849A" stroke-width="0.75" stroke-dasharray="3 4"/>
+          <defs>
+            <path id="arc" d="M85,85 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"/>
+          </defs>
+          <text fill="#C4849A" font-family="'DM Sans',sans-serif" font-size="10" font-weight="400" letter-spacing="6">
+            <textPath href="#arc" startOffset="4%">HANDMADE · GIFTED · LOVED · EST. 2025 ·</textPath>
+          </text>
+          <g transform="translate(85,78)">
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+            <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(0)"   opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(60)"  opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(120)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(180)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(240)" opacity="0.55"/>
+            <path d="M0,-17 C8,-15 10,-4 0,0 C-10,-4 -8,-15 0,-17Z" fill="#D9A3BA" transform="rotate(300)" opacity="0.55"/>
+            <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+            <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+          </g>
+          <text x="85" y="128" text-anchor="middle"
+            fill="#2A2033" font-family="'Cormorant Garamond',serif"
+            font-size="20" font-weight="600" letter-spacing="6">KLOVY</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 05 COLOUR PALETTE ══ -->
+  <div class="sec">
+    <div class="sec-lbl">05 — Colour System</div>
+    <div class="g5">
+      <div class="sw">
+        <div class="sw-fill" style="background:#C4849A;"></div>
+        <div class="sw-info"><div class="sw-name">Bloom</div><div class="sw-hex">#C4849A</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-fill" style="background:#829A74;"></div>
+        <div class="sw-info"><div class="sw-name">Fern</div><div class="sw-hex">#829A74</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-fill" style="background:#C9A24A;"></div>
+        <div class="sw-info"><div class="sw-name">Honey</div><div class="sw-hex">#C9A24A</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-fill" style="background:#1E1B2E;"></div>
+        <div class="sw-info"><div class="sw-name">Plum Night</div><div class="sw-hex">#1E1B2E</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-fill" style="background:#FDF6F0; border-bottom:1px solid #E0D4CA;"></div>
+        <div class="sw-info"><div class="sw-name">Cloud</div><div class="sw-hex">#FDF6F0</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 06 TYPOGRAPHY ══ -->
+  <div class="sec">
+    <div class="sec-lbl">06 — Typography</div>
+    <div class="tc">
+      <div class="tr">
+        <div class="tm">Display — Cormorant Garamond 600</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;letter-spacing:0.1em;color:var(--plum);line-height:1.05;">KLOVY</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:22px;color:#C4849A;margin-top:9px;letter-spacing:0.03em;">Crafted with care, given with love.</div>
+      </div>
+      <div class="tr">
+        <div class="tm">Body — DM Sans 400</div>
+        <div style="font-size:15px;line-height:1.75;max-width:520px;font-weight:400;">Every KLOVY piece is made by hand — stitched, looped, and bloomed into a gift that lasts. Shop bouquets, plushies, and personalised gifts. Delivered to your door, wrapped with heart.</div>
+      </div>
+      <div class="tr">
+        <div class="tm">Label / UI — DM Sans 300 · tracked</div>
+        <div style="font-weight:300;font-size:11px;letter-spacing:0.22em;color:var(--muted);text-transform:uppercase;">Free Gift Wrapping &nbsp;·&nbsp; Custom Messages &nbsp;·&nbsp; Doorstep Delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 07 IN CONTEXT ══ -->
+  <div class="sec">
+    <div class="sec-lbl">07 — Digital &amp; Packaging Contexts</div>
+    <div class="g3">
+
+      <!-- Instagram / social avatar -->
+      <div class="cc">
+        <div style="width:92px;height:92px;border-radius:50%;background:var(--rose-pale);border:3px solid var(--rose);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="54" height="54" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30,30)">
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+              <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+              <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+            </g>
+          </svg>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-weight:500;font-size:13px;">@klovy</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;">klovy.in</div>
+        </div>
+        <div class="cl">Instagram / social avatar</div>
+      </div>
+
+      <!-- Gift tag -->
+      <div class="cc">
+        <div style="background:white;border-radius:10px;border:1px solid #E0D4CA;padding:18px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;width:130px;position:relative;box-shadow:0 2px 8px rgba(196,132,154,.10);">
+          <div style="width:11px;height:11px;border-radius:50%;border:1.5px solid #C4849A;position:absolute;top:-6px;left:50%;transform:translateX(-50%);background:white;"></div>
+          <svg width="34" height="34" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30,30)">
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+              <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+              <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+              <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+            </g>
+          </svg>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;letter-spacing:0.16em;color:#2A2033;">KLOVY</div>
+          <div style="font-size:8.5px;color:#9E8FA4;letter-spacing:0.14em;">handmade with love</div>
+        </div>
+        <div class="cl">Gift tag / packaging label</div>
+      </div>
+
+      <!-- Website nav -->
+      <div class="cc">
+        <div style="width:100%;background:white;border-radius:8px;border:1px solid #E0D4CA;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(30,30)">
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+                <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+                <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+                <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+              </g>
+            </svg>
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;letter-spacing:0.16em;color:#2A2033;">KLOVY</span>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <span style="font-size:10px;color:#9E8FA4;">Shop</span>
+            <span style="font-size:10px;color:#9E8FA4;">Gifts</span>
+            <span style="font-size:10px;color:#9E8FA4;">About</span>
+          </div>
+        </div>
+        <div class="cl">Website nav / header bar</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="ft">
+    <div class="ft-logo">
+      <svg width="20" height="20" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(30,30)">
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(0)"/>
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(60)"/>
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(120)"/>
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(180)"/>
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(240)"/>
+          <path d="M0,-26 C14,-23 18,-5 0,0 C-18,-5 -14,-23 0,-26Z" fill="#C4849A" transform="rotate(300)"/>
+          <circle cx="0" cy="0" r="8.5" fill="#829A74"/>
+          <circle cx="0" cy="0" r="4"   fill="#FDF6F0"/>
+        </g>
+      </svg>
+      <span class="ft-wm">KLOVY</span>
+    </div>
+    <span class="ft-copy">Brand Identity v1.0 · Handmade with love · 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>
